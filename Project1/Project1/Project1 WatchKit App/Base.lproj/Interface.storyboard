@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project1_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" pagingScroll="YES" id="biF-48-E8S">
+                            <items>
+                                <tableRow identifier="Row" id="4p5-gq-S8H" customClass="NoteSelectRow" customModule="Project1_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="BbC-sQ-IPc">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Label" textAlignment="center" id="uCe-PB-KEZ"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="textLabel" destination="uCe-PB-KEZ" id="FqZ-QZ-7xh"/>
+                                        <segue destination="o6g-Mx-apZ" kind="push" id="B8F-mA-wZZ"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="1" alignment="left" title="Add New Note" id="Pxs-c4-trI">
+                            <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addNewNote" destination="AgC-eL-Hgc" id="vfL-Gu-NVh"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="biF-48-E8S" id="HOq-tz-N55"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-101" y="31"/>
+        </scene>
+        <!--Detail Interface Controller-->
+        <scene sceneID="Z4O-J5-BWI">
+            <objects>
+                <controller id="o6g-Mx-apZ" customClass="DetailInterfaceController" customModule="Project1_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Label" numberOfLines="0" id="JFe-fq-bvp"/>
+                    </items>
+                    <connections>
+                        <outlet property="textLabel" destination="JFe-fq-bvp" id="Ohu-On-QEa"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="158" y="31"/>
+        </scene>
+    </scenes>
+</document>

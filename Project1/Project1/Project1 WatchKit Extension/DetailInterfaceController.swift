@@ -21,7 +21,8 @@ class DetailInterfaceController: WKInterfaceController {
             textLabel.setText(contextDictionary["note"] ?? "")
             
             let index = contextDictionary["index"] ?? "1"
-            setTitle("Note \(index)")
+            let totalNumber = contextDictionary["totalNumber"] ?? "1"
+            setTitle("Note \(index) / \(totalNumber)")
         }
         
     }

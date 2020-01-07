@@ -14,9 +14,9 @@
                         <table alignment="left" pagingScroll="YES" id="biF-48-E8S">
                             <items>
                                 <tableRow identifier="Row" id="4p5-gq-S8H" customClass="NoteSelectRow" customModule="Project1_WatchKit_Extension">
-                                    <group key="rootItem" width="1" alignment="left" id="BbC-sQ-IPc">
+                                    <group key="rootItem" width="1" height="60" alignment="left" id="BbC-sQ-IPc">
                                         <items>
-                                            <label alignment="left" verticalAlignment="center" text="Label" textAlignment="center" id="uCe-PB-KEZ"/>
+                                            <label alignment="left" verticalAlignment="center" text="Long Label with multiple lines of text to test" textAlignment="left" numberOfLines="3" id="uCe-PB-KEZ"/>
                                         </items>
                                     </group>
                                     <connections>

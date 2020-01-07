@@ -59,7 +59,7 @@ class InterfaceController: WKInterfaceController {
 
     @IBAction func addNewNote() {
         // 1: request user input
-        presentTextInputController(withSuggestions: nil, allowedInputMode: .plain) { [unowned self] result in
+        presentTextInputController(withSuggestions: nil,  allowedInputMode: .plain) { [unowned self] result in
             // 2: convert the returned item to a string if possible otherwise bail out
             guard let result = result?.first as? String else { return }
             // 3: insert a new row at the end of our table

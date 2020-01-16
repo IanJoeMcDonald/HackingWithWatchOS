@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project2_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" hidden="YES" text="You Win!" id="G1c-pO-Qcj">
+                            <fontDescription key="font" type="boldSystem" pointSize="35"/>
+                        </label>
+                        <imageView width="0.5" height="0.5" alignment="center" id="MpB-XG-bdu"/>
+                        <separator alignment="left" id="g6w-3S-8Ow"/>
+                        <group width="1" height="0.33000000000000002" alignment="left" id="0LB-QN-uof">
+                            <items>
+                                <button width="0.33000000000000002" alignment="left" title="Button" id="Pe1-t9-HqE">
+                                    <connections>
+                                        <action selector="rockTapped" destination="AgC-eL-Hgc" id="cV2-g8-gi2"/>
+                                    </connections>
+                                </button>
+                                <button width="0.34000000000000002" alignment="left" title="Button" id="kPW-VR-6al">
+                                    <connections>
+                                        <action selector="paperTapped" destination="AgC-eL-Hgc" id="9KI-SL-tTH"/>
+                                    </connections>
+                                </button>
+                                <button width="0.33000000000000002" alignment="left" title="Button" id="Wyf-HK-czS" userLabel="I">
+                                    <connections>
+                                        <action selector="scissorsTapped" destination="AgC-eL-Hgc" id="oOu-OI-b4t"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="0.90000000000000002" alignment="center" id="Ubn-fY-6cP">
+                            <items>
+                                <label alignment="left" text="1/20" id="mxE-rt-wP9"/>
+                                <timer alignment="right" textAlignment="left" id="l3b-Lb-rVL">
+                                    <calendarUnit key="units" minute="YES" second="YES"/>
+                                </timer>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="answers" destination="0LB-QN-uof" id="KJR-vD-odd"/>
+                        <outlet property="levelCounter" destination="mxE-rt-wP9" id="7OV-Mt-wrQ"/>
+                        <outlet property="paper" destination="kPW-VR-6al" id="aP7-aJ-mZJ"/>
+                        <outlet property="question" destination="MpB-XG-bdu" id="qyg-1K-2qZ"/>
+                        <outlet property="result" destination="G1c-pO-Qcj" id="uxR-Dv-hus"/>
+                        <outlet property="rock" destination="Pe1-t9-HqE" id="6VS-am-Y5l"/>
+                        <outlet property="scissors" destination="Wyf-HK-czS" id="Lza-Zy-YfQ"/>
+                        <outlet property="timer" destination="l3b-Lb-rVL" id="IL2-mo-RY9"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="118" y="73"/>
+        </scene>
+    </scenes>
+</document>

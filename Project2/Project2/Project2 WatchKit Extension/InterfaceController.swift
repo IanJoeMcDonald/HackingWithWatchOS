@@ -67,7 +67,10 @@ class InterfaceController: WKInterfaceController {
             shouldWin = false
         }
         
-        allMoves.shuffle()
+        let oldMove = allMoves[0]
+        while oldMove == allMoves[0] {
+            allMoves.shuffle()
+        }
         question.setImage(UIImage(named: allMoves[0]))
     }
 

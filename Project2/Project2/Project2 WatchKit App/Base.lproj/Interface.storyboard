@@ -20,17 +20,17 @@
                             <items>
                                 <button width="0.33000000000000002" alignment="left" title="Button" id="Pe1-t9-HqE">
                                     <connections>
-                                        <action selector="rockTapped" destination="AgC-eL-Hgc" id="cV2-g8-gi2"/>
+                                        <action selector="button1Tapped" destination="AgC-eL-Hgc" id="FWE-gm-OLG"/>
                                     </connections>
                                 </button>
                                 <button width="0.34000000000000002" alignment="left" title="Button" id="kPW-VR-6al">
                                     <connections>
-                                        <action selector="paperTapped" destination="AgC-eL-Hgc" id="9KI-SL-tTH"/>
+                                        <action selector="button2Tapped" destination="AgC-eL-Hgc" id="R2y-e0-JzY"/>
                                     </connections>
                                 </button>
                                 <button width="0.33000000000000002" alignment="left" title="Button" id="Wyf-HK-czS" userLabel="I">
                                     <connections>
-                                        <action selector="scissorsTapped" destination="AgC-eL-Hgc" id="oOu-OI-b4t"/>
+                                        <action selector="button3Tapped" destination="AgC-eL-Hgc" id="Ohs-uI-HKV"/>
                                     </connections>
                                 </button>
                             </items>
@@ -46,12 +46,12 @@
                     </items>
                     <connections>
                         <outlet property="answers" destination="0LB-QN-uof" id="KJR-vD-odd"/>
+                        <outlet property="button1" destination="Pe1-t9-HqE" id="2fW-rc-woB"/>
+                        <outlet property="button2" destination="kPW-VR-6al" id="wms-QZ-SN3"/>
+                        <outlet property="button3" destination="Wyf-HK-czS" id="1Lq-7F-GeZ"/>
                         <outlet property="levelCounter" destination="mxE-rt-wP9" id="7OV-Mt-wrQ"/>
-                        <outlet property="paper" destination="kPW-VR-6al" id="aP7-aJ-mZJ"/>
                         <outlet property="question" destination="MpB-XG-bdu" id="qyg-1K-2qZ"/>
                         <outlet property="result" destination="G1c-pO-Qcj" id="uxR-Dv-hus"/>
-                        <outlet property="rock" destination="Pe1-t9-HqE" id="6VS-am-Y5l"/>
-                        <outlet property="scissors" destination="Wyf-HK-czS" id="Lza-Zy-YfQ"/>
                         <outlet property="timer" destination="l3b-Lb-rVL" id="IL2-mo-RY9"/>
                     </connections>
                 </controller>

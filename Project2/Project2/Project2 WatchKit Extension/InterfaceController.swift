@@ -15,9 +15,9 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var question: WKInterfaceImage!
     
     @IBOutlet weak var answers: WKInterfaceGroup!
-    @IBOutlet weak var rock: WKInterfaceButton!
-    @IBOutlet weak var paper: WKInterfaceButton!
-    @IBOutlet weak var scissors: WKInterfaceButton!
+    @IBOutlet weak var button1: WKInterfaceButton!
+    @IBOutlet weak var button2: WKInterfaceButton!
+    @IBOutlet weak var button3: WKInterfaceButton!
     
     @IBOutlet weak var levelCounter: WKInterfaceLabel!
     @IBOutlet weak var timer: WKInterfaceTimer!
@@ -25,15 +25,12 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var result: WKInterfaceLabel!
     
     var allMoves = ["rock", "paper", "scissors"]
+    var buttonPositions = [String]()
     var shouldWin = true
     var level = 1
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        rock.setBackgroundImage(UIImage(named: "rock"))
-        paper.setBackgroundImage(UIImage(named: "paper"))
-        scissors.setBackgroundImage(UIImage(named: "scissors"))
         
         timer.start()
         newLevel()
@@ -72,10 +69,34 @@ class InterfaceController: WKInterfaceController {
             allMoves.shuffle()
         }
         question.setImage(UIImage(named: allMoves[0]))
+        setButtonImages()
     }
 
     func check(for answer: String) {
-        if allMoves[0] == answer {
+        var correct = false
+        if shouldWin {
+            if (allMoves[0] == "rock" && answer == "paper") {
+                correct = true
+            } else if (allMoves[0] == "paper" && answer == "scissors") {
+                correct = true
+            } else if (allMoves[0] == "scissors" && answer == "rock") {
+                correct = true
+            } else {
+                correct = false
+            }
+        } else {
+            if (allMoves[0] == "rock" && answer == "scissors") {
+                correct = true
+            } else if (allMoves[0] == "paper" && answer == "rock") {
+                correct = true
+            } else if (allMoves[0] == "scissors" && answer == "paper") {
+                correct = true
+            } else {
+                correct = false
+            }
+        }
+        
+        if correct {
             level += 1
             newLevel()
         } else {
@@ -85,25 +106,20 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    @IBAction func rockTapped() {
-        if shouldWin {
-            check(for: "scissors")
-        } else {
-            check(for: "paper")
-        }
+    func setButtonImages() {
+        buttonPositions = allMoves.shuffled()
+        button1.setBackgroundImage(UIImage(named: buttonPositions[0]))
+        button2.setBackgroundImage(UIImage(named: buttonPositions[1]))
+        button3.setBackgroundImage(UIImage(named: buttonPositions[2]))
     }
-    @IBAction func paperTapped() {
-        if shouldWin {
-            check(for: "rock")
-        } else {
-            check(for: "scissors")
-        }
+    
+    @IBAction func button1Tapped() {
+        check(for: buttonPositions[0])
     }
-    @IBAction func scissorsTapped() {
-        if shouldWin {
-            check(for: "paper")
-        } else {
-            check(for: "rock")
-        }
+    @IBAction func button2Tapped() {
+        check(for: buttonPositions[1])
+    }
+    @IBAction func button3Tapped() {
+        check(for: buttonPositions[2])
     }
 }

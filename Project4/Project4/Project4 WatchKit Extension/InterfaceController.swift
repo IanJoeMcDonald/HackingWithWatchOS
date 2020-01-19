@@ -14,36 +14,22 @@ class InterfaceController: WKInterfaceController {
 
     @IBOutlet weak var amountLabel: WKInterfaceLabel!
     @IBOutlet weak var amountSlider: WKInterfaceSlider!
-    @IBOutlet weak var currencyPicker: WKInterfacePicker!
     
     static let currencies = ["USD", "AUD", "BRL", "CAD", "CHF", "CHY",
                              "EUR","GBP", "HKD", "JPY", "SGD" ]
     static let defaultCurrencies = ["USD", "EUR"]
     static let selectedCurrenciesKey = "SelectedCurrencies"
     let conversionAmountKey = "conversionAmount"
-    let conversionCurrencyKey = "conversionCurrecny"
-    var currentCurrency = "USD"
+    static let conversionCurrencyKey = "conversionCurrecny"
     var currentAmount = 500
     
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        var items = [WKPickerItem]()
-        for currency in InterfaceController.currencies {
-            let item = WKPickerItem()
-            item.title = currency
-            items.append(item)
-        }
-        
-        currencyPicker.setItems(items)
-        
-        let defaults = UserDefaults.standard
-        currentAmount = defaults.integer(forKey: conversionAmountKey)
+
+        currentAmount = UserDefaults.standard.integer(forKey: conversionAmountKey)
         amountLabel.setText(String(currentAmount))
         amountSlider.setValue(Float(currentAmount))
-        currentCurrency = defaults.string(forKey: conversionCurrencyKey) ?? "USD"
-        currencyPicker.setSelectedItemIndex(InterfaceController.currencies.firstIndex(of: currentCurrency) ?? 0)
     }
     
     override func willActivate() {
@@ -57,7 +43,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     @IBAction func convertTapped() {
-        
+        let currentCurrency = UserDefaults.standard.string(forKey: InterfaceController.conversionCurrencyKey) ?? "USD"
         let context = ["amount": String(currentAmount), "base": currentCurrency]
         
         WKInterfaceController.reloadRootPageControllers(withNames: ["Results"], contexts: [context], orientation: .horizontal, pageIndex: 0)
@@ -70,10 +56,4 @@ class InterfaceController: WKInterfaceController {
         
         UserDefaults.standard.set(currentAmount, forKey: conversionAmountKey)
     }
-    @IBAction func baseCurrencyChanged(_ value: Int) {
-        currentCurrency = InterfaceController.currencies[value]
-        
-        UserDefaults.standard.set(currentCurrency, forKey: conversionCurrencyKey)
-    }
-    
 }

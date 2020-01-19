@@ -103,7 +103,7 @@ class ResultsInterfaceController: WKInterfaceController {
     }
     
     @IBAction func doneTapped() {
-        WKInterfaceController.reloadRootPageControllers(withNames: ["Home", "Currencies"],
+        WKInterfaceController.reloadRootPageControllers(withNames: ["Home", "BaseCurrency", "Currencies"],
                                                         contexts: nil, orientation: .horizontal,
                                                         pageIndex: 0)
     }

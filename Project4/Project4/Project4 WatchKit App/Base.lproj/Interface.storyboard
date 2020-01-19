@@ -21,12 +21,8 @@
                         </slider>
                         <group width="1" height="0.33000000000000002" alignment="left" id="CLc-ls-IxS">
                             <items>
-                                <picker width="0.59999999999999998" height="1" alignment="left" id="bdK-V9-KUg">
-                                    <connections>
-                                        <action selector="baseCurrencyChanged:" destination="AgC-eL-Hgc" id="8R0-9v-Kmh"/>
-                                    </connections>
-                                </picker>
-                                <button width="0.40000000000000002" height="1" alignment="left" title="Go" id="Ca8-wB-pUw">
+                                <button width="1" height="1" alignment="left" title="Go" id="Ca8-wB-pUw">
+                                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <action selector="convertTapped" destination="AgC-eL-Hgc" id="adL-OY-n6x"/>
                                     </connections>
@@ -37,12 +33,40 @@
                     <connections>
                         <outlet property="amountLabel" destination="wLT-2K-dSF" id="9nc-jC-icP"/>
                         <outlet property="amountSlider" destination="EzQ-gF-WJM" id="Azi-jm-ClN"/>
-                        <outlet property="currencyPicker" destination="bdK-V9-KUg" id="jOI-sA-GiY"/>
-                        <segue destination="vUV-44-3CB" kind="relationship" relationship="nextPage" id="xbH-5r-ojI"/>
+                        <segue destination="7hd-yv-v3W" kind="relationship" relationship="nextPage" id="GjY-bt-sJH"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="62" y="31"/>
+        </scene>
+        <!--Base Currency-->
+        <scene sceneID="x3q-b2-yJD">
+            <objects>
+                <controller identifier="BaseCurrency" title="Base Currency" id="7hd-yv-v3W" customClass="BaseCurrencyInterfaceController" customModule="Project4_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="HtN-NK-mjf">
+                            <items>
+                                <tableRow identifier="Row" id="IUM-Lr-RpZ" customClass="CurrencyRow" customModule="Project4_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="5OB-Fc-abi">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Label" id="TlB-uw-6HQ"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="group" destination="5OB-Fc-abi" id="d8C-jh-AfR"/>
+                                        <outlet property="textLabel" destination="TlB-uw-6HQ" id="lFV-GT-jk6"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="HtN-NK-mjf" id="j3Y-k2-Z59"/>
+                        <segue destination="vUV-44-3CB" kind="relationship" relationship="nextPage" id="KHb-uT-ZNL"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="333" y="31"/>
         </scene>
         <!--Currencies-->
         <scene sceneID="Z79-wP-Qgf">
@@ -70,7 +94,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="316" y="31"/>
+            <point key="canvasLocation" x="605" y="31"/>
         </scene>
         <!--Results-->
         <scene sceneID="jXv-ul-AD8">

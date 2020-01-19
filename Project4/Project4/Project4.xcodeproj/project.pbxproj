@@ -24,6 +24,7 @@
 		9A72A13323D3ABEB0035D77F /* CurrenciesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A72A13223D3ABEB0035D77F /* CurrenciesInterfaceController.swift */; };
 		9A72A13523D3B51A0035D77F /* ResultsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A72A13423D3B51A0035D77F /* ResultsInterfaceController.swift */; };
 		9A72A13723D3E8F10035D77F /* CurrencyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A72A13623D3E8F10035D77F /* CurrencyResult.swift */; };
+		9A72A13923D3F0910035D77F /* BaseCurrencyInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A72A13823D3F0910035D77F /* BaseCurrencyInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		9A72A13223D3ABEB0035D77F /* CurrenciesInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesInterfaceController.swift; sourceTree = "<group>"; };
 		9A72A13423D3B51A0035D77F /* ResultsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsInterfaceController.swift; sourceTree = "<group>"; };
 		9A72A13623D3E8F10035D77F /* CurrencyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResult.swift; sourceTree = "<group>"; };
+		9A72A13823D3F0910035D77F /* BaseCurrencyInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCurrencyInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				9A72A13223D3ABEB0035D77F /* CurrenciesInterfaceController.swift */,
 				9A72A13423D3B51A0035D77F /* ResultsInterfaceController.swift */,
 				9A72A13623D3E8F10035D77F /* CurrencyResult.swift */,
+				9A72A13823D3F0910035D77F /* BaseCurrencyInterfaceController.swift */,
 			);
 			path = "Project4 WatchKit Extension";
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A72A13523D3B51A0035D77F /* ResultsInterfaceController.swift in Sources */,
+				9A72A13923D3F0910035D77F /* BaseCurrencyInterfaceController.swift in Sources */,
 				9A72A13723D3E8F10035D77F /* CurrencyResult.swift in Sources */,
 				9A72A13123D3AB700035D77F /* CurrencyRow.swift in Sources */,
 				9A72A11F23D3A54E0035D77F /* ExtensionDelegate.swift in Sources */,

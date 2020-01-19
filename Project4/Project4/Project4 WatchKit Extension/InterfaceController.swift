@@ -20,6 +20,8 @@ class InterfaceController: WKInterfaceController {
                              "EUR","GBP", "HKD", "JPY", "SGD" ]
     static let defaultCurrencies = ["USD", "EUR"]
     static let selectedCurrenciesKey = "SelectedCurrencies"
+    let conversionAmountKey = "conversionAmount"
+    let conversionCurrencyKey = "conversionCurrecny"
     var currentCurrency = "USD"
     var currentAmount = 500
     
@@ -35,6 +37,13 @@ class InterfaceController: WKInterfaceController {
         }
         
         currencyPicker.setItems(items)
+        
+        let defaults = UserDefaults.standard
+        currentAmount = defaults.integer(forKey: conversionAmountKey)
+        amountLabel.setText(String(currentAmount))
+        amountSlider.setValue(Float(currentAmount))
+        currentCurrency = defaults.string(forKey: conversionCurrencyKey) ?? "USD"
+        currencyPicker.setSelectedItemIndex(InterfaceController.currencies.firstIndex(of: currentCurrency) ?? 0)
     }
     
     override func willActivate() {
@@ -58,9 +67,13 @@ class InterfaceController: WKInterfaceController {
     @IBAction func amountChanged(_ value: Float) {
         currentAmount = Int(value)
         amountLabel.setText(String(currentAmount))
+        
+        UserDefaults.standard.set(currentAmount, forKey: conversionAmountKey)
     }
     @IBAction func baseCurrencyChanged(_ value: Int) {
         currentCurrency = InterfaceController.currencies[value]
+        
+        UserDefaults.standard.set(currentCurrency, forKey: conversionCurrencyKey)
     }
     
 }

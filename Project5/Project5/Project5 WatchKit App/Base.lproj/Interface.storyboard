@@ -47,6 +47,11 @@
                                     <action selector="startNewGame" destination="AgC-eL-Hgc" id="gDi-TU-dgO"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Color Blind Mode" icon="maybe" id="qAv-hG-29J">
+                                <connections>
+                                    <action selector="setColorBlindMode" destination="AgC-eL-Hgc" id="w9u-yI-fGo"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                     <connections>

@@ -30,7 +30,16 @@ class InterfaceController: WKInterfaceController {
         "Black": UIColor.black,
     ]
     
+    var colorBlind = [
+        "Heart": "♥️",
+        "Spade": "♠️",
+        "Diamond": "♦️",
+        "Club": "♣️",
+        "Triangle": "🔺"
+    ]
+    
     var currentLevel = 0
+    var colorBlindMode = false
    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -53,26 +62,10 @@ class InterfaceController: WKInterfaceController {
     func levelUp() {
         currentLevel += 1
         
-        // pull out the color names and shuffle them with the buttons
-        var colorKeys = Array(colors.keys)
-        colorKeys.shuffle()
-        buttons.shuffle()
-        
-        // loop over all the buttons
-        for (index, button) in buttons.enumerated() {
-            // give them a color from the `colors` dictionaru
-            button.setBackgroundColor(colors[colorKeys[index]])
-            
-            // make sure they are enabled
-            button.setEnabled(true)
-            
-            if index == 0 {
-                // this should have the wrong title
-                button.setTitle(colorKeys[colorKeys.count - 1])
-            } else {
-                // this should have the correct title
-                button.setTitle(colorKeys[index])
-            }
+        if colorBlindMode {
+            setColorBlindButtons()
+        } else {
+            setButtonColors()
         }
         
         if currentLevel == 10 {
@@ -91,10 +84,67 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
+    func setButtonColors() {
+        // pull out the color names and shuffle them with the buttons
+        var colorKeys = Array(colors.keys)
+        colorKeys.shuffle()
+        buttons.shuffle()
+        
+        // loop over all the buttons
+        for (index, button) in buttons.enumerated() {
+            // give them a color from the `colors` dictionaru
+            button.setBackgroundColor(colors[colorKeys[index]])
+            
+            // make sure they are enabled
+            button.setEnabled(true)
+            if index == 0 {
+                // this should have the wrong title
+                button.setTitle(colorKeys[colorKeys.count - 1])
+            } else {
+                // this should have the correct title
+                button.setTitle(colorKeys[index])
+            }
+        }
+    }
+    
+    func setColorBlindButtons() {
+        var colorBlindKeys = Array(colorBlind.keys)
+        colorBlindKeys.shuffle()
+        buttons.shuffle()
+        
+        for (index, button) in buttons.enumerated() {
+            // set color to white for more contrast
+            button.setBackgroundColor(UIColor.white)
+            button.setEnabled(true)
+            
+            // get the image to be shown on the top of the button
+            var text = colorBlind[colorBlindKeys[index]] ?? ""
+            text += "\n"
+            if index == 0 {
+                // this should have the wrong title
+                text +=  colorBlindKeys[colorBlindKeys.count - 1]
+            } else {
+                // this should have the correct title
+                text += colorBlindKeys[index]
+            }
+            
+            // create attributed string to set color to Black
+            let attributedString = NSMutableAttributedString(string: text)
+            attributedString.setAttributes([NSAttributedString.Key.foregroundColor: UIColor.black],
+                                           range: NSMakeRange(0, attributedString.length))
+            button.setAttributedTitle(attributedString)
+        }
+    }
+    
     @IBAction func startNewGame() {
         startTime = Date()
         currentLevel = 0
         levelUp()
+    }
+    
+    @IBAction func setColorBlindMode() {
+        colorBlindMode.toggle()
+        startNewGame()
     }
     
     func buttonTapped(_ button: WKInterfaceButton) {

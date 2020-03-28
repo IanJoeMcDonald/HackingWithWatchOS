@@ -154,6 +154,9 @@ class InterfaceController: WKInterfaceController {
         } else {
             // wrong - make them try again
             button.setEnabled(false)
+            if currentLevel > 1 {
+                currentLevel -= 1
+            }
         }
     }
     

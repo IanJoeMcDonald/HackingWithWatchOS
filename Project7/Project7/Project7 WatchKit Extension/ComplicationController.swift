@@ -99,8 +99,19 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.body1TextProvider = CLKSimpleTextProvider(text: "Your Prediction",
                                                                shortText: "Prediction")
             handler(template)
+        case .extraLarge:
+            let template = CLKComplicationTemplateExtraLargeStackText()
+            template.line1TextProvider = CLKSimpleTextProvider(text: "Magic 8-Ball",
+                                                               shortText: "8-Ball")
+            template.line2TextProvider = CLKSimpleTextProvider(text: "Your Prediction",
+                                                               shortText: "Prediction")
+            handler(template)
         case .modularSmall:
             let template = CLKComplicationTemplateModularSmallSimpleText()
+            template.textProvider = CLKSimpleTextProvider(text: "8")
+            handler(template)
+        case .utilitarianSmallFlat:
+            let template = CLKComplicationTemplateUtilitarianSmallFlat()
             template.textProvider = CLKSimpleTextProvider(text: "8")
             handler(template)
         default:
@@ -112,6 +123,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // find the correct prediction for this date
         let predictionNumber = Int(date.timeIntervalSince1970) % allAnswers.count
         let prediction = allAnswers[predictionNumber]
+        let predictionEmoji = emoji(for: prediction)
         
         switch family {
         case .modularLarge:
@@ -120,20 +132,29 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.headerTextProvider = CLKSimpleTextProvider(text: "Magic 8-ball")
             template.body1TextProvider = CLKSimpleTextProvider(text: prediction)
             return template
+        case .extraLarge:
+            let template = CLKComplicationTemplateExtraLargeStackText()
+            template.line1TextProvider = CLKSimpleTextProvider(text: "8-ball")
+            template.line2TextProvider = CLKSimpleTextProvider(text: predictionEmoji)
+            return template
+        case .utilitarianSmallFlat:
+            let template = CLKComplicationTemplateUtilitarianSmallFlat()
+            template.textProvider = CLKSimpleTextProvider(text: predictionEmoji)
+            return template
         default:
             // create a short, emoji-based prediction
             let template = CLKComplicationTemplateModularSmallSimpleText()
-            if positiveAnswers.contains(prediction) {
-                template.textProvider = CLKSimpleTextProvider(text: "😀")
-            } else if uncertainAnswers.contains(prediction) {
-                template.textProvider = CLKSimpleTextProvider(text: "🤔")
-            } else {
-                template.textProvider = CLKSimpleTextProvider(text: "😮")
-            }
-            
+            template.textProvider = CLKSimpleTextProvider(text: predictionEmoji)
             return template
         }
-        
     }
     
+    func emoji(for prediction: String) -> String {
+        if positiveAnswers.contains(prediction) {
+            return "😀"
+        } else if uncertainAnswers.contains(prediction) {
+            return "🤔"
+        }
+        return "😮"
+    }
 }

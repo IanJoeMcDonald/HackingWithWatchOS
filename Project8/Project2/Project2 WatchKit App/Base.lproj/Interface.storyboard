@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project2_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" hidden="YES" text="You Win!" id="G1c-pO-Qcj">
+                            <fontDescription key="font" type="boldSystem" pointSize="35"/>
+                        </label>
+                        <imageView width="0.5" height="0.5" alignment="center" id="MpB-XG-bdu"/>
+                        <separator alignment="left" id="g6w-3S-8Ow"/>
+                        <group width="1" height="0.33000000000000002" alignment="left" id="0LB-QN-uof">
+                            <items>
+                                <button width="0.33000000000000002" alignment="left" id="Pe1-t9-HqE">
+                                    <connections>
+                                        <action selector="button1Tapped" destination="AgC-eL-Hgc" id="FWE-gm-OLG"/>
+                                    </connections>
+                                </button>
+                                <button width="0.34000000000000002" alignment="left" id="kPW-VR-6al">
+                                    <connections>
+                                        <action selector="button2Tapped" destination="AgC-eL-Hgc" id="R2y-e0-JzY"/>
+                                    </connections>
+                                </button>
+                                <button width="0.33000000000000002" alignment="left" id="Wyf-HK-czS" userLabel="I">
+                                    <connections>
+                                        <action selector="button3Tapped" destination="AgC-eL-Hgc" id="Ohs-uI-HKV"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="0.90000000000000002" alignment="center" id="Ubn-fY-6cP">
+                            <items>
+                                <label alignment="left" text="1/20" id="mxE-rt-wP9"/>
+                                <timer alignment="right" textAlignment="left" id="l3b-Lb-rVL">
+                                    <calendarUnit key="units" minute="YES" second="YES"/>
+                                </timer>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="answers" destination="0LB-QN-uof" id="KJR-vD-odd"/>
+                        <outlet property="button1" destination="Pe1-t9-HqE" id="2fW-rc-woB"/>
+                        <outlet property="button2" destination="kPW-VR-6al" id="wms-QZ-SN3"/>
+                        <outlet property="button3" destination="Wyf-HK-czS" id="1Lq-7F-GeZ"/>
+                        <outlet property="levelCounter" destination="mxE-rt-wP9" id="7OV-Mt-wrQ"/>
+                        <outlet property="question" destination="MpB-XG-bdu" id="qyg-1K-2qZ"/>
+                        <outlet property="result" destination="G1c-pO-Qcj" id="uxR-Dv-hus"/>
+                        <outlet property="timer" destination="l3b-Lb-rVL" id="IL2-mo-RY9"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="118" y="73"/>
+        </scene>
+    </scenes>
+</document>

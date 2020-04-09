@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project9_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <imageView alignment="center" verticalAlignment="center" image="star" id="oIb-nn-FxW"/>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Animate" id="fNR-4w-9b0">
+                            <connections>
+                                <action selector="animateTapped" destination="AgC-eL-Hgc" id="JXJ-p2-oog"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="image" destination="oIb-nn-FxW" id="enC-b2-Luh"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="118" y="73"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star" width="60" height="60"/>
+    </resources>
+</document>

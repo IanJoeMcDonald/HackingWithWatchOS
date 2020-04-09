@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project8_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="Safe Crack" textAlignment="center" id="d7e-cS-HRz">
+                            <fontDescription key="font" type="system" pointSize="24"/>
+                        </label>
+                        <slider width="1" alignment="left" continuous="YES" value="50" maximum="100" steps="100" id="Iyf-lg-dJX"/>
+                        <button width="1" alignment="left" title="Next" id="UmX-2S-GWE">
+                            <connections>
+                                <action selector="nextTapped" destination="AgC-eL-Hgc" id="KIx-TA-8gq"/>
+                            </connections>
+                        </button>
+                        <timer alignment="center" id="zN5-BZ-DgS">
+                            <calendarUnit key="units" minute="YES" second="YES"/>
+                        </timer>
+                    </items>
+                    <connections>
+                        <outlet property="nextButton" destination="UmX-2S-GWE" id="aus-RE-xy0"/>
+                        <outlet property="numbersLabel" destination="d7e-cS-HRz" id="X6d-91-lrA"/>
+                        <outlet property="safeValue" destination="Iyf-lg-dJX" id="SE1-ib-lFv"/>
+                        <outlet property="timer" destination="zN5-BZ-DgS" id="PSl-0F-fUb"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="28" y="28"/>
+        </scene>
+    </scenes>
+</document>

@@ -54,9 +54,7 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
             WKInterfaceDevice.current().play(.click)
             
             // now update the UI to show this is good
-            safeValue.setColor(UIColor.green)
-            numbersLabel.setTextColor(UIColor.green)
-            nextButton.setEnabled(true)
+            numberIsCorrect()
         } else {
             // wrong number; make sure the UI show this is bad
             numberIsWrong()
@@ -95,6 +93,12 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         numbersLabel.setTextColor(UIColor.white)
         nextButton.setEnabled(false)
     }
+    
+    func numberIsCorrect() {
+        safeValue.setColor(UIColor.green)
+        numbersLabel.setTextColor(UIColor.green)
+        nextButton.setEnabled(true)
+    }
 
     @IBAction func nextTapped() {
         
@@ -115,4 +119,23 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
             pickNumber()
         }
     }
+    
+    @IBAction func safeSliderPushed(_ value: Float) {
+        
+        currentSafeValue = min(max(0, value), 100)
+        safeValue.setValue(currentSafeValue)
+        nextButton.setTitle("Enter \(Int(currentSafeValue))")
+        
+        if Int(currentSafeValue) == targetSafeValue {
+            // this is the right number - tap their wrist
+            WKInterfaceDevice.current().play(.click)
+            
+            // now update the UI to show this is good
+            numberIsCorrect()
+        } else {
+            // wrong number; make sure the UI show this is bad
+            numberIsWrong()
+        }
+    }
+    
 }

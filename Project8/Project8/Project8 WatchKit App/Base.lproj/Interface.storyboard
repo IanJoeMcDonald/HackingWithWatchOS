@@ -14,7 +14,11 @@
                         <label alignment="center" text="Safe Crack" textAlignment="center" id="d7e-cS-HRz">
                             <fontDescription key="font" type="system" pointSize="24"/>
                         </label>
-                        <slider width="1" alignment="left" continuous="YES" value="50" maximum="100" steps="100" id="Iyf-lg-dJX"/>
+                        <slider width="1" alignment="left" continuous="YES" value="50" maximum="100" steps="100" id="Iyf-lg-dJX">
+                            <connections>
+                                <action selector="safeSliderPushed:" destination="AgC-eL-Hgc" id="4hP-ft-6Re"/>
+                            </connections>
+                        </slider>
                         <button width="1" alignment="left" title="Next" id="UmX-2S-GWE">
                             <connections>
                                 <action selector="nextTapped" destination="AgC-eL-Hgc" id="KIx-TA-8gq"/>

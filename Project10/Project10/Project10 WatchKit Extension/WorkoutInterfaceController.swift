@@ -193,6 +193,9 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
                 // we got a heart rate - just update the property
                 lastHeartRate = sample.quantity.doubleValue(for: countPerMinuteUnit)
                 print("Last heart rate: \(lastHeartRate)")
+                if lastHeartRate > 165 {
+                    WKInterfaceDevice.current().play(.notification)
+                }
             } else if type == distanceType {
                 // we got a distance travelled value
                 let newDistance = sample.quantity.doubleValue(for: HKUnit.meter())

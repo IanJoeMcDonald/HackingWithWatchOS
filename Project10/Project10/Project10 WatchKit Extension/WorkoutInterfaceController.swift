@@ -215,6 +215,20 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
         activeDataQueries.removeAll()
     }
     
+    func askToSave(_ workoutSession: HKWorkoutSession) {
+        let saveAction = WKAlertAction(title: "Save", style: .default) {
+                self.save(workoutSession)
+        }
+        
+        let discardAction = WKAlertAction(title: "Discard", style: .cancel) { }
+        
+
+        presentAlert(withTitle: "Workout Complete",
+            message: "Do you want to save this workout",
+            preferredStyle: WKAlertControllerStyle.alert,
+            actions: [saveAction, discardAction])
+    }
+    
     func save(_ workoutSession: HKWorkoutSession) {
         let config = workoutSession.workoutConfiguration
         let workout = HKWorkout(activityType: config.activityType, start: workoutStartDate,
@@ -295,7 +309,7 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
             isWorkoutActive = false
             
             cleanUpQueries()
-            save(workoutSession)
+            askToSave(workoutSession)
             
         default:
             break

@@ -23,6 +23,7 @@
 		9A3999CB2443638000B6C685 /* WorkoutInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3999CA2443638000B6C685 /* WorkoutInterfaceController.swift */; };
 		9A3999CF24436B8F00B6C685 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3999CE24436B8F00B6C685 /* HealthKit.framework */; };
 		9A3999D224436E4D00B6C685 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3999D124436E4D00B6C685 /* HealthKit.framework */; };
+		9A3999D72445202A00B6C685 /* ActivitySelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3999D62445202A00B6C685 /* ActivitySelectRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		9A3999CE24436B8F00B6C685 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		9A3999D024436E4D00B6C685 /* Project10 WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project10 WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		9A3999D124436E4D00B6C685 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		9A3999D62445202A00B6C685 /* ActivitySelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySelectRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				9A3999BA2443628C00B6C685 /* Assets.xcassets */,
 				9A3999BC2443628C00B6C685 /* Info.plist */,
 				9A3999CA2443638000B6C685 /* WorkoutInterfaceController.swift */,
+				9A3999D62445202A00B6C685 /* ActivitySelectRow.swift */,
 			);
 			path = "Project10 WatchKit Extension";
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				9A3999B92443628B00B6C685 /* ExtensionDelegate.swift in Sources */,
 				9A3999B72443628B00B6C685 /* InterfaceController.swift in Sources */,
 				9A3999CB2443638000B6C685 /* WorkoutInterfaceController.swift in Sources */,
+				9A3999D72445202A00B6C685 /* ActivitySelectRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

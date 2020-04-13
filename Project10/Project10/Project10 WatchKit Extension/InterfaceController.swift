@@ -13,7 +13,7 @@ import HealthKit
 
 class InterfaceController: WKInterfaceController {
 
-    @IBOutlet weak var activityType: WKInterfacePicker!
+    @IBOutlet weak var table: WKInterfaceTable!
     let activities: [(String, HKWorkoutActivityType)] = [("Cycling", .cycling),
                                                          ("Running", .running),
                                                          ("Swimming", .swimming),
@@ -23,15 +23,10 @@ class InterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        var items = [WKPickerItem]()
-        
-        for activity in activities {
-            let item = WKPickerItem()
-            item.title = activity.0
-            items.append(item)
+        table.setNumberOfRows(activities.count, withRowType: "Row")
+        for rowIndex in 0 ..< activities.count {
+            set(row: rowIndex, to: activities[rowIndex].0)
         }
-        
-        activityType.setItems(items)
     }
     
     override func willActivate() {
@@ -44,11 +39,13 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
-    @IBAction func activityPickerChanged(_ value: Int) {
-        selectedActivity = activities[value].1
+    func set(row rowIndex: Int, to text: String) {
+        guard let row = table.rowController(at: rowIndex) as? ActivitySelectRow else { return }
+        row.textLabel.setText(text)
     }
     
-    @IBAction func startWorkoutTapped() {
+    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+        selectedActivity = activities[rowIndex].1
         guard HKHealthStore.isHealthDataAvailable() else { return }
         WKInterfaceController.reloadRootPageControllers(withNames: ["WorkoutInterfaceController"],
                                                         contexts: [selectedActivity],

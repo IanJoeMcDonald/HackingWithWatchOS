@@ -12,19 +12,23 @@
                 <controller identifier="InterfaceController" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project10_WatchKit_App" customModuleProvider="target">
                     <items>
                         <label alignment="left" text="Activity Type" id="wRn-4J-bxE"/>
-                        <picker height="42" alignment="left" id="QZS-lv-BS8">
-                            <connections>
-                                <action selector="activityPickerChanged:" destination="AgC-eL-Hgc" id="Mdc-Hx-mWY"/>
-                            </connections>
-                        </picker>
-                        <button width="1" alignment="left" title="Start Workout" id="R3Z-To-8FY">
-                            <connections>
-                                <action selector="startWorkoutTapped" destination="AgC-eL-Hgc" id="vbE-LT-XbU"/>
-                            </connections>
-                        </button>
+                        <table alignment="left" id="F6B-Ri-b0x">
+                            <items>
+                                <tableRow identifier="Row" id="gMz-1z-SDL" customClass="ActivitySelectRow" customModule="Project10_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="7qD-1B-BFg">
+                                        <items>
+                                            <label alignment="left" text="Label" id="e0U-oQ-UDo"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="textLabel" destination="e0U-oQ-UDo" id="9f6-rL-mBP"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
                     </items>
                     <connections>
-                        <outlet property="activityType" destination="QZS-lv-BS8" id="rZP-dj-jc1"/>
+                        <outlet property="table" destination="F6B-Ri-b0x" id="fT4-nR-H6L"/>
                     </connections>
                 </controller>
             </objects>

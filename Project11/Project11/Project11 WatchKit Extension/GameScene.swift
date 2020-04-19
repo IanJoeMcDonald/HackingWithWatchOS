@@ -121,6 +121,9 @@ class GameScene: SKScene, WKCrownDelegate, SKPhysicsContactDelegate {
         // place the ball at its starting position
         ball.position = position
         
+        let isFastBall = Int.random(in: 1 ... 5) == 5
+        print(isFastBall)
+        
         let flashEdge = SKAction.run {
             edge.color = self.colorValues[ballType]
             edge.alpha = 1
@@ -131,10 +134,17 @@ class GameScene: SKScene, WKCrownDelegate, SKPhysicsContactDelegate {
         }
         
         let launchBall = SKAction.run {
-            ball.physicsBody?.velocity = force
+            if isFastBall {
+                ball.physicsBody?.velocity = CGVector(dx: force.dx * 1.5,
+                                                      dy: force.dy * 1.5)
+            } else {
+                ball.physicsBody?.velocity = force
+            }
         }
         
-        let sequence = SKAction.sequence([flashEdge, SKAction.wait(forDuration: alertDelay),
+        let timeDelay = isFastBall ? alertDelay / 1.5 : alertDelay
+        
+        let sequence = SKAction.sequence([flashEdge, SKAction.wait(forDuration: timeDelay),
                                          resetEdge, launchBall])
         run(sequence)
         alertDelay *= 0.98

@@ -138,6 +138,14 @@ class GameScene: SKScene, WKCrownDelegate, SKPhysicsContactDelegate {
                                          resetEdge, launchBall])
         run(sequence)
         alertDelay *= 0.98
+        moveSpeed *= 1.02
+        for edge in [leftEdge, rightEdge] {
+            edge.size = CGSize(width: edge.size.width, height: edge.size.height * 0.98)
+        }
+        
+        for edge in [topEdge, bottomEdge] {
+            edge.size = CGSize(width: edge.size.width * 0.98, height: edge.size.height)
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {

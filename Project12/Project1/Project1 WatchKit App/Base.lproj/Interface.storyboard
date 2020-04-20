@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project1_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" pagingScroll="YES" id="biF-48-E8S">
+                            <items>
+                                <tableRow identifier="Row" id="4p5-gq-S8H" customClass="NoteSelectRow" customModule="Project1_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="60" alignment="left" id="BbC-sQ-IPc">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Long Label with multiple lines of text to test" textAlignment="left" numberOfLines="3" id="uCe-PB-KEZ"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="textLabel" destination="uCe-PB-KEZ" id="FqZ-QZ-7xh"/>
+                                        <segue destination="o6g-Mx-apZ" kind="push" id="B8F-mA-wZZ"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="1" alignment="left" title="Add New Note" id="Pxs-c4-trI">
+                            <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addNewNote" destination="AgC-eL-Hgc" id="vfL-Gu-NVh"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Credits" id="7oF-4C-I9p">
+                            <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="fhm-D6-Eeo" kind="push" id="Tpb-je-fvu"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="biF-48-E8S" id="HOq-tz-N55"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-101" y="31"/>
+        </scene>
+        <!--Detail Interface Controller-->
+        <scene sceneID="Z4O-J5-BWI">
+            <objects>
+                <controller id="o6g-Mx-apZ" customClass="DetailInterfaceController" customModule="Project1_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Label" numberOfLines="0" id="JFe-fq-bvp"/>
+                        <button width="1" alignment="left" title="Send to Phone" id="Hbq-Xy-vkO">
+                            <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="sendToPhoneTapped" destination="o6g-Mx-apZ" id="olJ-JU-73z"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="textLabel" destination="JFe-fq-bvp" id="Ohu-On-QEa"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="158" y="31"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="vEy-GD-OeZ">
+            <objects>
+                <controller id="fhm-D6-Eeo">
+                    <items>
+                        <label alignment="left" text="This is my first watch app, made by Ian McDonald" textAlignment="center" numberOfLines="0" id="EDN-jZ-ehG">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                        </label>
+                    </items>
+                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="413" y="31"/>
+        </scene>
+    </scenes>
+</document>
